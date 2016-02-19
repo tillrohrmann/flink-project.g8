@@ -1,4 +1,4 @@
-package org.stsffap
+package $organization$
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -57,7 +57,7 @@ object SocketTextStreamWordCount {
 
     //Create streams for names and ages by mapping the inputs to the corresponding objects
     val text = env.socketTextStream(hostName, port)
-    val counts = text.flatMap { _.toLowerCase.split("\\W+") filter { _.nonEmpty } }
+    val counts = text.flatMap { _.toLowerCase.split("\\\\W+") filter { _.nonEmpty } }
       .map { (_, 1) }
       .keyBy(0)
       .sum(1)
