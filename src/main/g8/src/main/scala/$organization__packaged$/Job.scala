@@ -29,10 +29,10 @@ import org.apache.flink.api.scala._
  * You can also generate a .jar file that you can submit on your Flink
  * cluster. Just type
  * {{{
- *   mvn clean package
+ *   sbt clean assembly
  * }}}
  * in the projects root directory. You will find the jar in
- * target/flink-quickstart-0.1-SNAPSHOT-Sample.jar
+ * target/scala-2.11/Flink\ Project-assembly-0.1-SNAPSHOT.jar
  *
  */
 object Job {
