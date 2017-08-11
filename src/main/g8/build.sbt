@@ -1,5 +1,7 @@
-resolvers in ThisBuild ++= Seq("Apache Development Snapshot Repository" at "https://repository.apache.org/content/repositories/snapshots/",
-  Resolver.mavenLocal)
+resolvers in ThisBuild ++= Seq(
+    "Apache Development Snapshot Repository" at "https://repository.apache.org/content/repositories/snapshots/",
+    Resolver.mavenLocal
+)
 
 name := "$name$"
 
@@ -23,7 +25,10 @@ lazy val root = (project in file(".")).
 mainClass in assembly := Some("$organization$.Job")
 
 // make run command include the provided dependencies
-run in Compile <<= Defaults.runTask(fullClasspath in Compile, mainClass in (Compile, run), runner in (Compile, run))
+run in Compile := Defaults.runTask(fullClasspath in Compile,
+                                   mainClass in (Compile, run),
+                                   runner in (Compile,run)
+                                  ).evaluated
 
 // exclude Scala library from assembly
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
