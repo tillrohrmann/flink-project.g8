@@ -1,4 +1,4 @@
-resolvers in ThisBuild ++= Seq(
+ThisBuild / resolvers ++= Seq(
     "Apache Development Snapshot Repository" at "https://repository.apache.org/content/repositories/snapshots/",
     Resolver.mavenLocal
 )
@@ -9,7 +9,7 @@ version := "$version$"
 
 organization := "$organization$"
 
-scalaVersion in ThisBuild := "$scala_version$"
+ThisBuild / scalaVersion := "$scala_version$"
 
 val flinkVersion = "$flink_version$"
 
@@ -22,13 +22,13 @@ lazy val root = (project in file(".")).
     libraryDependencies ++= flinkDependencies
   )
 
-mainClass in assembly := Some("$organization$.Job")
+ assembly / mainClass := Some("$organization$.Job")
 
 // make run command include the provided dependencies
-run in Compile := Defaults.runTask(fullClasspath in Compile,
-                                   mainClass in (Compile, run),
-                                   runner in (Compile,run)
+Compile / run  := Defaults.runTask(Compile / fullClasspath,
+                                   Compile / run / mainClass,
+                                   Compile / run / runner
                                   ).evaluated
 
 // exclude Scala library from assembly
-assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
+assembly / assemblyOption  := (assembly / assemblyOption).value.copy(includeScala = false)
