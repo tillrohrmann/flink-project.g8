@@ -30,5 +30,9 @@ Compile / run  := Defaults.runTask(Compile / fullClasspath,
                                    Compile / run / runner
                                   ).evaluated
 
+// stays inside the sbt console when we press "ctrl-c" while a Flink programme executes with "run" or "runMain"
+Compile / run / fork := true
+Global / cancelable := true
+
 // exclude Scala library from assembly
 assembly / assemblyOption  := (assembly / assemblyOption).value.copy(includeScala = false)

@@ -12,8 +12,8 @@ In order to generate a Flink project enter on the command line:
 
 ```
 $ sbt new tillrohrmann/flink-project.g8
-````
+```
 
 This will prompt for a couple of parameters (project name, scala version...) and the generate a Flink project using Scala and SBT.
 
-You can then follow the [README.md of the generated project](src/main/g8/README) for build and run instructions.
+You can then follow the [README.md of the generated project](src/main/g8/README.md) for build and run instructions.
