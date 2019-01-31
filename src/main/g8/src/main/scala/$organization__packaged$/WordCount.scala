@@ -31,7 +31,7 @@ import org.apache.flink.api.scala._
  *   - write and use user-defined functions.
  */
 object WordCount {
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
 
     // set up the execution environment
     val env = ExecutionEnvironment.getExecutionEnvironment

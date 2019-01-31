@@ -21,10 +21,10 @@ package $organization$
 import org.apache.flink.streaming.api.scala._
 
 /**
- * This example shows an implementation of WordCount with data from a text socket. 
+ * This example shows an implementation of WordCount with data from a text socket.
  * To run the example make sure that the service providing the text data is already up and running.
  *
- * To start an example socket text stream on your local machine run netcat from a command line, 
+ * To start an example socket text stream on your local machine run netcat from a command line,
  * where the parameter specifies the port number:
  *
  * {{{
@@ -44,12 +44,12 @@ import org.apache.flink.streaming.api.scala._
  */
 object SocketTextStreamWordCount {
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     if (args.length != 2) {
       System.err.println("USAGE:\nSocketTextStreamWordCount <hostname> <port>")
       return
     }
-    
+
     val hostName = args(0)
     val port = args(1).toInt
 
