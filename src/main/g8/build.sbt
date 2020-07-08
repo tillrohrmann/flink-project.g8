@@ -14,6 +14,7 @@ ThisBuild / scalaVersion := "$scala_version$"
 val flinkVersion = "$flink_version$"
 
 val flinkDependencies = Seq(
+  "org.apache.flink" %% "flink-clients" % flinkVersion % "provided",
   "org.apache.flink" %% "flink-scala" % flinkVersion % "provided",
   "org.apache.flink" %% "flink-streaming-scala" % flinkVersion % "provided")
 
